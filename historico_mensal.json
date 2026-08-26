@@ -1,0 +1,15 @@
+{
+    "2026-08": {
+        "label": "Mês Atual (08/2026)",
+        "faturamento_mes": 58900.0,
+        "total_aulas_mes": 920,
+        "total_validados": 716,
+        "total_pendencias": 60,
+        "perda_total_bruta": 1035.22,
+        "perda_clinica": 620.98,
+        "perda_profissional": 414.24,
+        "taxa_gympass": 91.9,
+        "taxa_totalpass": 92.9,
+        "pct_perda": 6.5
+    }
+}
