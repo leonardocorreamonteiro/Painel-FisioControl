@@ -4,12 +4,12 @@
         "faturamento_mes": 58900.0,
         "total_aulas_mes": 920,
         "total_validados": 716,
-        "total_pendencias": 5,
+        "total_pendencias": 60,
         "perda_total_bruta": 86.07000000000001,
         "perda_clinica": 51.629999999999995,
         "perda_profissional": 34.44,
-        "taxa_gympass": 99.3,
-        "taxa_totalpass": 99.3,
-        "pct_perda": 0.5
+        "taxa_gympass": 91.9,
+        "taxa_totalpass": 92.9,
+        "pct_perda": 6.5
     }
 }
