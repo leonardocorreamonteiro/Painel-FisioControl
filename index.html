@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Gestão Gympass & TotalPass - FisioControl</title>
+    <title>Painel de Gestão & Feridas de Check-in - FisioControl</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -13,106 +13,220 @@
         <!-- Cabeçalho Principal -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
             <div>
-                <h1 class="text-2xl font-black text-slate-900 tracking-tight">FisioControl • Gestão de Benefícios</h1>
-                <p class="text-xs text-slate-500 mt-1">Acompanhamento e conciliação de presença: Gympass vs. TotalPass</p>
+                <h1 class="text-2xl font-black text-slate-900 tracking-tight">FisioControl • Painel de Gestão e Performance</h1>
+                <p class="text-xs text-slate-500 mt-1">Conciliação de aulas e central de recuperação de check-ins não validados</p>
             </div>
             <div class="mt-3 md:mt-0 flex items-center space-x-2 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
                 <span class="inline-block w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                <span class="text-xs font-semibold text-slate-600">Atualizado: <strong class="text-slate-900">25/08/2026 às 23:06</strong></span>
+                <span class="text-xs font-semibold text-slate-600">Atualizado: <strong class="text-slate-900">25/08/2026 às 23:12</strong></span>
             </div>
         </div>
 
-        <!-- VISÃO DE ALTO NÍVEL: FATURAMENTO E TOTAL DE AULAS -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- INDICADORES EXECUTIVOS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
                 <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Faturamento do Mês</p>
                 <p class="text-2xl font-black text-slate-900 mt-2">R$ 58,900.00</p>
-                <p class="text-xs text-slate-500 mt-1">Total acumulado no Clínica Ágil</p>
+                <p class="text-xs text-slate-500 mt-1">Acumulado Clínica Ágil</p>
             </div>
             <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Aulas com Parceiros (Mês)</p>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Aulas com Parceiros</p>
                 <p class="text-2xl font-black text-slate-900 mt-2">920 <span class="text-xs font-normal text-slate-500">atendimentos</span></p>
-                <p class="text-xs text-slate-500 mt-1">Presenças registradas em sala</p>
+                <p class="text-xs text-slate-500 mt-1">Presenças em sala no mês</p>
             </div>
             <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Índice de Perda no Mês</p>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Perda Estimada no Mês</p>
+                <p class="text-2xl font-black text-rose-600 mt-2">R$ 2,100.00</p>
+                <p class="text-xs text-rose-500 font-semibold mt-1">60 aulas não validadas</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Taxa de Perda Geral</p>
                 <p class="text-2xl font-black text-rose-600 mt-2">6.5%</p>
-                <p class="text-xs text-rose-500 mt-1 font-medium">60 aulas sem check-in validado</p>
+                <p class="text-xs text-slate-500 mt-1">Aulas dadas sem repasse</p>
             </div>
         </div>
 
-        <!-- ANÁLISE COMPARATIVA: GYMPASS VS TOTALPASS -->
+        <!-- CARDS GYMPASS VS TOTALPASS (COM ALUNOS PENDENTES DE HOJE) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
-            <!-- Card Gympass -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-rose-100 relative overflow-hidden">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="px-3 py-1 bg-rose-100 text-rose-800 text-xs font-bold rounded-full">GYMPASS</span>
-                    <span class="text-xs font-bold text-emerald-600">91.9% de Sucesso</span>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <p class="text-xs text-slate-400 font-semibold uppercase">Validados (Mês)</p>
-                        <p class="text-2xl font-black text-slate-900 mt-1">429</p>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-rose-100 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="px-3 py-1 bg-rose-100 text-rose-800 text-xs font-bold rounded-full">GYMPASS</span>
+                        <span class="text-xs font-bold text-emerald-600">91.9% de Sucesso</span>
                     </div>
-                    <div>
-                        <p class="text-xs text-slate-400 font-semibold uppercase">Pendentes (Mês)</p>
-                        <p class="text-2xl font-black text-rose-600 mt-1">38</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-xs text-slate-400 font-semibold uppercase">Validados (Mês)</p>
+                            <p class="text-2xl font-black text-slate-900 mt-1">429</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 font-semibold uppercase">Pendentes (Mês)</p>
+                            <p class="text-2xl font-black text-rose-600 mt-1">38</p>
+                        </div>
                     </div>
                 </div>
-                <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center">
-                    <span class="text-xs text-slate-500">Pendências de Hoje:</span>
-                    <span class="text-xs font-black text-rose-600 bg-rose-50 px-2 py-0.5 rounded">2 alunos</span>
+
+                <div class="mt-5 pt-3 border-t border-slate-100">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-xs font-bold text-slate-700">Pendências de Hoje:</span>
+                        <span class="text-xs font-black text-rose-600 bg-rose-50 px-2 py-0.5 rounded-md">2 alunos</span>
+                    </div>
+                    <ul class="mt-2 space-y-1 text-xs text-rose-800 bg-rose-50 p-3 rounded-xl border border-rose-200 font-medium"><li>• <strong>Juliana Machado</strong> (10:00)</li><li>• <strong>Fernanda Souza</strong> (14:00)</li></ul>
                 </div>
             </div>
 
-            <!-- Card TotalPass -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-emerald-100 relative overflow-hidden">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full">TOTALPASS</span>
-                    <span class="text-xs font-bold text-emerald-600">92.9% de Sucesso</span>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <p class="text-xs text-slate-400 font-semibold uppercase">Validados (Mês)</p>
-                        <p class="text-2xl font-black text-slate-900 mt-1">287</p>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-emerald-100 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full">TOTALPASS</span>
+                        <span class="text-xs font-bold text-emerald-600">92.9% de Sucesso</span>
                     </div>
-                    <div>
-                        <p class="text-xs text-slate-400 font-semibold uppercase">Pendentes (Mês)</p>
-                        <p class="text-2xl font-black text-amber-600 mt-1">22</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-xs text-slate-400 font-semibold uppercase">Validados (Mês)</p>
+                            <p class="text-2xl font-black text-slate-900 mt-1">287</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 font-semibold uppercase">Pendentes (Mês)</p>
+                            <p class="text-2xl font-black text-amber-600 mt-1">22</p>
+                        </div>
                     </div>
                 </div>
-                <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center">
-                    <span class="text-xs text-slate-500">Pendências de Hoje:</span>
-                    <span class="text-xs font-black text-amber-600 bg-amber-50 px-2 py-0.5 rounded">1 alunos</span>
+
+                <div class="mt-5 pt-3 border-t border-slate-100">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-xs font-bold text-slate-700">Pendências de Hoje:</span>
+                        <span class="text-xs font-black text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md">1 alunos</span>
+                    </div>
+                    <ul class="mt-2 space-y-1 text-xs text-amber-900 bg-amber-50 p-3 rounded-xl border border-amber-200 font-medium"><li>• <strong>Marcelo Silva</strong> (15:00)</li></ul>
                 </div>
             </div>
 
+        </div>
+
+        <!-- 🚨 NOVO PAINEL DEDICADO: CENTRAL DE FERIDAS / RECUPERAÇÃO DE CHECK-INS -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-rose-200">
+            <div class="flex flex-col md:flex-row justify-between md:items-center mb-4 pb-4 border-b border-slate-100">
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-xl">🚨</span>
+                        <h2 class="text-lg font-black text-slate-900 tracking-tight">Central de Recuperação • Aulas Sem Check-in Validado</h2>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-0.5">Relatório detalhado de atendimentos presenciais que exigem cobrança imediata ou ajuste nos portais</p>
+                </div>
+                <div class="mt-3 md:mt-0 bg-rose-50 px-4 py-2 rounded-xl border border-rose-200 text-right">
+                    <p class="text-xs text-rose-700 font-bold">Total Não Recuperado</p>
+                    <p class="text-lg font-black text-rose-600">R$ 2,100.00</p>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-slate-50 border-b border-slate-200 text-slate-500 text-xs font-bold uppercase tracking-wider">
+                            <th class="p-3.5">Data & Hora</th>
+                            <th class="p-3.5">Aluno</th>
+                            <th class="p-3.5">Parceiro</th>
+                            <th class="p-3.5">Fisioterapeuta</th>
+                            <th class="p-3.5">Prejuízo Est.</th>
+                            <th class="p-3.5">Atraso</th>
+                            <th class="p-3.5">Status da Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr class="hover:bg-rose-50/50 transition border-b border-slate-100">
+                <td class="p-3.5 font-bold text-slate-800">24/08/2026 <span class="text-xs text-slate-400 font-normal">(10:00)</span></td>
+                <td class="p-3.5 font-black text-slate-900">Juliana Machado</td>
+                <td class="p-3.5"><span class="px-2 py-0.5 bg-rose-100 text-rose-800 font-bold rounded text-xs">Gympass</span></td>
+                <td class="p-3.5 text-slate-600">Dra. Amanda</td>
+                <td class="p-3.5 font-bold text-rose-600">R$ 35.00</td>
+                <td class="p-3.5"><span class="px-2.5 py-1 text-xs font-bold rounded-md bg-slate-100 text-slate-700">1 dia(s)</span></td>
+                <td class="p-3.5"><span class="px-2.5 py-1 text-xs font-bold rounded-lg bg-amber-500 text-white">Cobrança Hoje</span></td>
+            </tr>
+        
+            <tr class="hover:bg-rose-50/50 transition border-b border-slate-100">
+                <td class="p-3.5 font-bold text-slate-800">24/08/2026 <span class="text-xs text-slate-400 font-normal">(14:00)</span></td>
+                <td class="p-3.5 font-black text-slate-900">Fernanda Souza</td>
+                <td class="p-3.5"><span class="px-2 py-0.5 bg-rose-100 text-rose-800 font-bold rounded text-xs">Gympass</span></td>
+                <td class="p-3.5 text-slate-600">Dra. Amanda</td>
+                <td class="p-3.5 font-bold text-rose-600">R$ 35.00</td>
+                <td class="p-3.5"><span class="px-2.5 py-1 text-xs font-bold rounded-md bg-slate-100 text-slate-700">1 dia(s)</span></td>
+                <td class="p-3.5"><span class="px-2.5 py-1 text-xs font-bold rounded-lg bg-amber-500 text-white">Cobrança Hoje</span></td>
+            </tr>
+        
+            <tr class="hover:bg-rose-50/50 transition border-b border-slate-100">
+                <td class="p-3.5 font-bold text-slate-800">24/08/2026 <span class="text-xs text-slate-400 font-normal">(15:00)</span></td>
+                <td class="p-3.5 font-black text-slate-900">Marcelo Silva</td>
+                <td class="p-3.5"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold rounded text-xs">TotalPass</span></td>
+                <td class="p-3.5 text-slate-600">Dr. Lucas</td>
+                <td class="p-3.5 font-bold text-rose-600">R$ 35.00</td>
+                <td class="p-3.5"><span class="px-2.5 py-1 text-xs font-bold rounded-md bg-slate-100 text-slate-700">1 dia(s)</span></td>
+                <td class="p-3.5"><span class="px-2.5 py-1 text-xs font-bold rounded-lg bg-amber-500 text-white">Cobrança Hoje</span></td>
+            </tr>
+        
+            <tr class="hover:bg-rose-50/50 transition border-b border-slate-100">
+                <td class="p-3.5 font-bold text-slate-800">22/08/2026 <span class="text-xs text-slate-400 font-normal">(11:00)</span></td>
+                <td class="p-3.5 font-black text-slate-900">Gabriel Torres</td>
+                <td class="p-3.5"><span class="px-2 py-0.5 bg-rose-100 text-rose-800 font-bold rounded text-xs">Gympass</span></td>
+                <td class="p-3.5 text-slate-600">Dra. Amanda</td>
+                <td class="p-3.5 font-bold text-rose-600">R$ 35.00</td>
+                <td class="p-3.5"><span class="px-2.5 py-1 text-xs font-bold rounded-md bg-slate-100 text-slate-700">3 dia(s)</span></td>
+                <td class="p-3.5"><span class="px-2.5 py-1 text-xs font-bold rounded-lg bg-amber-500 text-white">Pendente / Notificado</span></td>
+            </tr>
+        
+            <tr class="hover:bg-rose-50/50 transition border-b border-slate-100">
+                <td class="p-3.5 font-bold text-slate-800">21/08/2026 <span class="text-xs text-slate-400 font-normal">(16:00)</span></td>
+                <td class="p-3.5 font-black text-slate-900">Patricia Mendes</td>
+                <td class="p-3.5"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold rounded text-xs">TotalPass</span></td>
+                <td class="p-3.5 text-slate-600">Dr. Lucas</td>
+                <td class="p-3.5 font-bold text-rose-600">R$ 35.00</td>
+                <td class="p-3.5"><span class="px-2.5 py-1 text-xs font-bold rounded-md bg-slate-100 text-slate-700">4 dia(s)</span></td>
+                <td class="p-3.5"><span class="px-2.5 py-1 text-xs font-bold rounded-lg bg-rose-600 text-white">Pendente / Critico</span></td>
+            </tr>
+        
+            <tr class="hover:bg-rose-50/50 transition border-b border-slate-100">
+                <td class="p-3.5 font-bold text-slate-800">19/08/2026 <span class="text-xs text-slate-400 font-normal">(09:00)</span></td>
+                <td class="p-3.5 font-black text-slate-900">Lucas Barbosa</td>
+                <td class="p-3.5"><span class="px-2 py-0.5 bg-rose-100 text-rose-800 font-bold rounded text-xs">Gympass</span></td>
+                <td class="p-3.5 text-slate-600">Dra. Amanda</td>
+                <td class="p-3.5 font-bold text-rose-600">R$ 35.00</td>
+                <td class="p-3.5"><span class="px-2.5 py-1 text-xs font-bold rounded-md bg-slate-100 text-slate-700">6 dia(s)</span></td>
+                <td class="p-3.5"><span class="px-2.5 py-1 text-xs font-bold rounded-lg bg-rose-600 text-white">Pendente / Critico</span></td>
+            </tr>
+        
+            <tr class="hover:bg-rose-50/50 transition border-b border-slate-100">
+                <td class="p-3.5 font-bold text-slate-800">18/08/2026 <span class="text-xs text-slate-400 font-normal">(17:00)</span></td>
+                <td class="p-3.5 font-black text-slate-900">Camila Nogueira</td>
+                <td class="p-3.5"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold rounded text-xs">TotalPass</span></td>
+                <td class="p-3.5 text-slate-600">Dr. Lucas</td>
+                <td class="p-3.5 font-bold text-rose-600">R$ 35.00</td>
+                <td class="p-3.5"><span class="px-2.5 py-1 text-xs font-bold rounded-md bg-slate-100 text-slate-700">7 dia(s)</span></td>
+                <td class="p-3.5"><span class="px-2.5 py-1 text-xs font-bold rounded-lg bg-rose-600 text-white">Aguardando Ajuste Manual</span></td>
+            </tr>
+        
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <!-- GRÁFICO COMPARATIVO DIA A DIA -->
         <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
             <div class="mb-4">
                 <h2 class="text-base font-bold text-slate-900">Evolução Diária de Check-ins Validados</h2>
-                <p class="text-xs text-slate-500">Comparativo dia a dia dos atendimentos efetuados no mês corrente</p>
+                <p class="text-xs text-slate-500">Comparativo dos atendimentos e validações efetuadas no mês corrente</p>
             </div>
             <div class="h-72 w-full">
                 <canvas id="graficoCheckins"></canvas>
             </div>
         </div>
 
-        <!-- TABELA OPERACIONAL PARA A RECEPÇÃO -->
+        <!-- TABELA OPERACIONAL DO DIA PARA A RECEPÇÃO -->
         <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-            <div class="flex flex-col md:flex-row justify-between md:items-center mb-4">
-                <div>
-                    <h2 class="text-base font-bold text-slate-900">Conciliação do Dia • Aulas de Pilates</h2>
-                    <p class="text-xs text-slate-500">Visão em tempo real do status de cada aluno agendado hoje</p>
-                </div>
-                <div class="mt-2 md:mt-0 flex space-x-2">
-                    <span class="text-xs font-bold text-slate-500 self-center">Ação imediata:</span>
-                    <span class="px-2.5 py-1 bg-rose-100 text-rose-800 text-xs font-bold rounded-lg">2 Gympass</span>
-                    <span class="px-2.5 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-lg">1 TotalPass</span>
-                </div>
+            <div class="mb-4">
+                <h2 class="text-base font-bold text-slate-900">Acompanhamento de Hoje • Aulas de Pilates</h2>
+                <p class="text-xs text-slate-500">Status em tempo real do dia corrente na clínica</p>
             </div>
 
             <div class="overflow-x-auto">
@@ -199,7 +313,7 @@
 
     </div>
 
-    <!-- SCRIPT DO GRÁFICO (CHART.JS) -->
+    <!-- SCRIPT DO GRÁFICO CHART.JS -->
     <script>
         const ctx = document.getElementById('graficoCheckins').getContext('2d');
         new Chart(ctx, {
