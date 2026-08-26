@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Gestão - Clínica FisioControl</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans p-6">
+    <div class="max-w-7xl mx-auto space-y-6">
+        
+        <!-- Cabeçalho -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+            <div>
+                <h1 class="text-2xl font-bold text-slate-900">Painel Operacional & Financeiro</h1>
+                <p class="text-sm text-slate-500">Gestão e Automação de Resultados - FisioControl</p>
+            </div>
+            <span class="mt-2 md:mt-0 px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-semibold rounded-full">● Atualizado Automaticamente</span>
+        </div>
+
+        <!-- KPIs dos Acionistas -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                <p class="text-xs font-medium text-slate-500 uppercase">Faturamento Efetivado</p>
+                <p class="text-2xl font-bold text-emerald-600 mt-1">R$ 48,500.00</p>
+                <p class="text-xs text-slate-400 mt-1">Mês Atual (Clínica Ágil)</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                <p class="text-xs font-medium text-slate-500 uppercase">Check-ins Validados</p>
+                <p class="text-2xl font-bold text-blue-600 mt-1">2 OK</p>
+                <p class="text-xs text-slate-400 mt-1">Gympass & TotalPass</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                <p class="text-xs font-medium text-slate-500 uppercase">Pendências de Check-in</p>
+                <p class="text-2xl font-bold text-rose-600 mt-1">1 Pendentes</p>
+                <p class="text-xs text-rose-500 mt-1 font-semibold">Exige ação da recepção</p>
+            </div>
+        </div>
+
+        <!-- Módulo da Recepcionista -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+            <div class="mb-4">
+                <h2 class="text-lg font-bold text-slate-900">Conciliação Diária de Pilates</h2>
+                <p class="text-sm text-slate-500">Confronto automático entre presença em sala vs. validação nos parceiros</p>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-slate-50 border-b border-slate-200 text-slate-600">
+                            <th class="p-3">Horário</th>
+                            <th class="p-3">Aluno</th>
+                            <th class="p-3">Parceiro</th>
+                            <th class="p-3">Fisioterapeuta</th>
+                            <th class="p-3">Status Check-in</th>
+                            <th class="p-3">Ação Necessária</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        
+            <tr class="bg-rose-50/50">
+                <td class="p-3 font-medium">09:00</td>
+                <td class="p-3 font-semibold">Mariana Lima</td>
+                <td class="p-3">Gympass</td>
+                <td class="p-3">Dra. Amanda</td>
+                <td class="p-3"><span class="px-2 py-1 bg-rose-100 text-rose-800 font-medium rounded-md text-xs">🔴 Não Realizado</span></td>
+                <td class="p-3"><span class="font-bold text-rose-600">Cobrar check-in do aluno</span></td>
+            </tr>
+        
+            <tr class="">
+                <td class="p-3 font-medium">10:00</td>
+                <td class="p-3 font-semibold">Carlos Eduardo</td>
+                <td class="p-3">TotalPass</td>
+                <td class="p-3">Dr. Lucas</td>
+                <td class="p-3"><span class="px-2 py-1 bg-emerald-100 text-emerald-800 font-medium rounded-md text-xs">🟢 Conciliado</span></td>
+                <td class="p-3"><span class="text-slate-400">Nenhuma (OK)</span></td>
+            </tr>
+        
+            <tr class="">
+                <td class="p-3 font-medium">11:00</td>
+                <td class="p-3 font-semibold">Juliana Machado</td>
+                <td class="p-3">Gympass</td>
+                <td class="p-3">Dra. Amanda</td>
+                <td class="p-3"><span class="px-2 py-1 bg-emerald-100 text-emerald-800 font-medium rounded-md text-xs">🟢 Conciliado</span></td>
+                <td class="p-3"><span class="text-slate-400">Nenhuma (OK)</span></td>
+            </tr>
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
