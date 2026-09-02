@@ -11,5 +11,18 @@
         "taxa_gympass": 91.9,
         "taxa_totalpass": 92.9,
         "pct_perda": 6.5
+    },
+    "2026-09": {
+        "label": "Mês Atual (09/2026)",
+        "faturamento_mes": 58900.0,
+        "total_aulas_mes": 920,
+        "total_validados": 716,
+        "total_pendencias": 60,
+        "perda_total_bruta": 86.07000000000001,
+        "perda_clinica": 51.629999999999995,
+        "perda_profissional": 34.44,
+        "taxa_gympass": 91.9,
+        "taxa_totalpass": 92.9,
+        "pct_perda": 6.5
     }
 }
